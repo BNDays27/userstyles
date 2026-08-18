@@ -1,0 +1,278 @@
+/* ==UserStyle==
+@name LRCLIB Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/lrclib
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/lrclib
+@version 2000.01.01
+@updateURL https://github.com/catppuccin/userstyles/raw/main/styles/lrclib/catppuccin.user.less
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Alrclib
+@description Soothing pastel theme for LRCLIB
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+
+@import "https://userstyles.catppuccin.com/lib/lib.less";
+
+
+@-moz-document domain("lrclib.net") {
+  /* This section applies the light/dark themes automatically based on the user's system theme.
+     Use the below example CSS to start if the website you are theming doesn't have a light/dark mode toggle.
+     For an actual example of this, see https://github.com/catppuccin/userstyles/blob/39288b593278e5efa48007d5fc001292cf910672/styles/brave-search/catppuccin.user.css#L16-L29.
+  */
+
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+
+    body,
+    .dark\:bg-indigo-900 {
+        background-color: @base;
+        color: @text
+    }
+
+    .dark\:text-indigo-900,
+    .dark\:text-green-900,
+    .dark\:text-indigo-950,
+    .text-white {
+        color: @base
+    }
+
+    .dark\:focus-within\:ring-indigo-400:focus-within {
+        --tw-ring-color: @accent
+    }
+
+    .dark\:bg-slate-900,
+    .dark\:bg-slate-700,
+    .dark\:bg-gray-950 {
+        background-color: @mantle
+    }
+
+    .dark\:bg-slate-800 {
+        background-color: @surface0
+    }
+
+    .dark\:bg-indigo-300,
+    .dark\:bg-indigo-500,
+    .dark\:bg-indigo-400 {
+        background-color: @accent
+    }
+
+    .dark\:hover\:bg-indigo-200:hover {
+        background-color: rgba(#lib.rgbify(@accent) [], 0.75)
+    }
+
+    .dark\:active\:bg-indigo-100:active {
+        background-color: rgba(#lib.rgbify(@accent) [], 0.5)
+    }
+
+    .link[data-v-cb49ac58],
+    .dark\:text-indigo-300,
+    .group:hover .dark\:group-hover\:text-indigo-300 {
+        color: @accent
+    }
+
+    .link[data-v-cb49ac58]:hover {
+        background-color: @mantle;
+        color: @text
+    }
+
+    .dark\:bg-green-200 {
+        background-color: @green
+    }
+
+    .dark\:hover\:text-slate-200:hover,
+    .dark\:hover\:text-slate-300:hover,
+    .dark\:text-white,
+    .dark\:text-slate-300,
+    .dark\:hover\:text-indigo-300:hover,
+    .dark\:text-slate-100,
+    .dark\:text-indigo-200,
+    .dark\:hover\:text-slate-100:hover,
+    .dark\:text-rose-200,
+    .dark\:text-sky-200,
+    .dark\:text-rose-100,
+    .dark\:text-sky-100 {
+        color: @text
+    }
+
+    .dark\:active\:text-slate-200:active {
+        color: @subtext1
+    }
+
+    .dark\:border-slate-700,
+    .dark\:border-slate-600 {
+        border-color: @overlay0
+    }
+
+    .dark\:text-slate-400,
+    .dark\:text-slate-500 {
+        color: @overlay0
+    }
+
+    .dark\:text-green-300 {
+        color: @green
+    }
+
+    .dark\:bg-green-900\/40 {
+        background-color: rgba(#lib.rgbify(@green) [], 0.4)
+    }
+
+    .dark\:hover\:bg-slate-800:hover {
+        background-color: @surface0
+    }
+
+    .dark\:active\:bg-slate-950:active {
+        background-color: @crust
+    }
+
+    .home-card-support[data-v-cb49ac58] {
+        border-color: rgba(#lib.rgbify(@red) [], 0.2);
+        background-color: rgba(#lib.rgbify(@red) [], 0.1)
+    }
+
+    .home-card-support[data-v-cb49ac58]:hover {
+        border-color: @red;
+        background-color: rgba(#lib.rgbify(@red) [], 0.3);
+        box-shadow: 0 8px 24px -16px @red
+    }
+
+    .home-card-support[data-v-cb49ac58]:active {
+        border-color: @red;
+        background-color: rgba(#lib.rgbify(@red) [], 0.5);
+        box-shadow: 0 8px 24px -16px @red
+    }
+
+    .dark\:bg-rose-900 {
+        background-color: @red
+    }
+
+    .dark\:bg-sky-900 {
+        background-color: @blue
+    }
+
+    .dark\:text-rose-300,
+    .dark\:text-red-300 {
+        color: @red
+    }
+
+    .home-card-lyrics[data-v-cb49ac58] {
+        border-color: rgba(#lib.rgbify(@blue) [], 0.2);
+        background-color: rgba(#lib.rgbify(@blue) [], 0.1)
+    }
+
+    .home-card-lyrics[data-v-cb49ac58]:hover {
+        border-color: @blue;
+        background-color: rgba(#lib.rgbify(@blue) [], 0.3);
+        box-shadow: 0 8px 24px -16px @blue
+    }
+
+    .home-card-lyrics[data-v-cb49ac58]:active {
+        border-color: @blue;
+        background-color: rgba(#lib.rgbify(@blue) [], 0.5);
+        box-shadow: 0 8px 24px -16px @blue
+    }
+
+    .dark\:hover\:border-indigo-400:hover,
+    .dark\:border-indigo-500,
+    .dark\:bg-indigo-400 {
+        border-color: @accent
+    }
+
+    .dark\:text-sky-300 {
+        color: @blue
+    }
+
+    .button-blend:hover,
+    .dark\:bg-black {
+        background-color: @base
+    }
+
+    .prose-indigo {
+    --tw-prose-body: @subtext1;
+    --tw-prose-headings: @text;
+    --tw-prose-code: @text;
+    --tw-prose-links: @text;
+    --tw-prose-bold: @text;
+    --tw-prose-pre-code: @text;
+    --tw-prose-pre-bg: @mantle;
+    --tw-prose-th-borders: @surface2;
+    --tw-prose-td-borders: @surface2;
+
+    --tw-prose-invert-body: @subtext1;
+    --tw-prose-invert-headings: @text;
+    --tw-prose-invert-code: @text;
+    --tw-prose-invert-links: @text;
+    --tw-prose-invert-bold: @text;
+    --tw-prose-invert-pre-code: @text;
+    --tw-prose-invert-pre-bg: @mantle;
+    --tw-prose-invert-th-borders: @surface2;
+    --tw-prose-invert-td-borders: @surface2;
+    }
+
+    .hljs-attr {
+        color: @lavender
+    }
+
+    .hljs-string {
+        color: @green
+    }
+
+    .hljs-number,
+    .hljs-literal {
+        color: @peach
+    }
+
+    .hljs-bullet {
+        color: @text
+    }
+    .dark\:\!bg-slate-700,
+    .dark\:hover\:bg-indigo-300:hover {
+        background-color: rgba(#lib.rgbify(@accent) [], 0.25) !important
+    }
+
+    .dark\:\!text-indigo-300 {
+        color: @accent !important
+    }
+
+    .dark\:\!border-indigo-500 {
+        border-color: @accent !important
+    }
+
+    .dark\:decoration-indigo-600 {
+        text-decoration-color: @accent
+    }
+
+    .dark\:hover\:border-indigo-300:hover {
+        border-color: #00000000
+    }
+
+    .shadow-\[8px_8px_0_\#4338ca\] {
+        --tw-shadow: @base
+    }
+
+    .window-3d[data-v-c4f1f07b]:after {
+        background: linear-gradient(135deg,transparent 30%,rgba(#lib.rgbify(@text) [],.04) 40%,rgba(#lib.rgbify(@text) [],.06) 45%,rgba(#lib.rgbify(@text) [],.02) 50%,transparent 55%)
+    }
+
+    & when (@flavor = latte) {
+        .dark\:text-rose-200,
+        .dark\:text-sky-200 {
+        color: @base
+        }
+    }
+  }
+}
