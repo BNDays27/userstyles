@@ -85,7 +85,8 @@
         color: @accent
     }
 
-    .link[data-v-cb49ac58]:hover {
+    .link[data-v-cb49ac58]:hover,
+    .link[data-v-ebe9438c]:hover {
         background-color: @mantle;
         color: @text
     }
@@ -263,6 +264,22 @@
     .shadow-\[8px_8px_0_\#4338ca\] {
         --tw-shadow: @base
     }
+
+      .dark\:enabled\:hover\:bg-slate-800:hover:enabled {
+          background-color: rgba(#lib.rgbify(@accent) [], 0.2)
+      }
+
+      .dark\:enabled\:hover\:border-indigo-500:hover:enabled {
+          border-color: @accent
+      }
+
+      .dark\:enabled\:hover\:text-indigo-300:hover:enabled {
+          color: @accent
+      }
+
+      .link[data-v-ebe9438c] {
+          color: @accent
+      }
 
     .window-3d[data-v-c4f1f07b]:after {
         background: linear-gradient(135deg,transparent 30%,rgba(#lib.rgbify(@text) [],.04) 40%,rgba(#lib.rgbify(@text) [],.06) 45%,rgba(#lib.rgbify(@text) [],.02) 50%,transparent 55%)
